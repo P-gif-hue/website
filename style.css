@@ -604,14 +604,10 @@ CARD TEXT
   }
 
   .welcome-hero {
-    height: 100svh;
-    background-size: cover;
-    background-position: center 75%;
+    height: auto;                /* remove forced screen height */
+    aspect-ratio: 9 / 16;        /* match your tall image */
+    background: url("Images/mobilebeach.png") center / cover no-repeat;
   }
-   .welcome-hero {
-     background: url("Images/mobilebeach.png") center / cover no-repeat;
-    }
-  
   .hero-inner {
     transform: translateY(40px);
   }
