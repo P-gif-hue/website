@@ -10,38 +10,20 @@
   box-sizing: border-box;
 }
 
+html, body {
+  min-height: 100%;
+}
+
 /* =====================================================
 2. GLOBAL DESIGN
 ===================================================== */
 
-
-html, body {
-  height: 100%;
-}
-
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  color: #3a342f;
-
-  background-image: url("Images/floral.png");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  font-family: 'Figtree', sans-serif;
+  color: #5c4a42;
+  background-color: #f7f2ef;
 }
 
- 
-main, nav, section, footer {
-  position: relative;
-  z-index: 1;
-}
-
-body {
-  background-attachment: fixed, fixed, scroll, scroll, scroll;
-}
-
-/* Typography */
 h1, h2, h3 {
   font-family: "Playfair Display", serif;
   font-weight: 500;
@@ -49,45 +31,39 @@ h1, h2, h3 {
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.7;
   color: #6f6761;
 }
 
 /* =====================================================
-NAVIGATION (DESKTOP + MOBILE BASE)
+3. NAVIGATION
 ===================================================== */
 
 nav {
-  padding: 26px 20px;
-  text-align: center;
-  position: relative;
-  z-index: 1000;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 0;
+  background: transparent;
+  z-index: 50;
 }
 
-/* Inner wrapper (keeps button + links aligned) */
 .nav-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-/* Use FLEX instead of inline-block */
 .nav-links ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 28px;
-}
-
-/* Remove inline-block completely */
-.nav-links li {
-  margin: 0;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #2b2b2b;
+  color: #3f2a28;
   font-size: 14px;
   letter-spacing: 1px;
   transition: opacity 0.25s ease;
@@ -97,497 +73,516 @@ nav {
   opacity: 0.6;
 }
 
-/* Hide hamburger on desktop */
 .nav-toggle {
   display: none;
 }
 
-/* SHARED SECTION WRAPPER */
+/* =====================================================
+4. HERO (STRAIGHT)
+===================================================== */
 
-.page-section {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 20px;
+.welcome-hero,
+.events-hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  margin-bottom: -2px; /* removes white gap */
 }
 
-/* BUTTON */
+/* Home hero */
+.welcome-hero {
+  height: 100vh;
+  background: url("Images/aibackground.png") center / cover no-repeat;
+}
 
-.btn-primary {
-  padding: 14px 34px;
-  border-radius: 40px;
-  background: #b7a39a;
-  color: white;
-  border: none;
-  cursor: pointer;
+/* Events hero */
+.events-hero {
+  height: 65vh;
+  min-height: 520px;
+  background: url("Images/daytimebeach.png") center / cover no-repeat;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+/* MONOGRAM */
+.monogram-wrapper {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.monogram {
+  width: 360px;
+  max-width: 65%;
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,0.05));
 }
 
 /* =====================================================
-3. HOME PAGE — PINK + SUNSET STYLE
+5. SAND SECTION (WAVED TOP)
+===================================================== */
+.section-cream {
+  position: relative;
+  background: url("Images/sand.png") center / cover no-repeat;
+  padding: 90px 20px 160px;
+  text-align: center;
+}
+
+/* Soft readability layer */
+.section-cream::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 245, 240, 0.55),
+    rgba(255, 235, 230, 0.45)
+  );
+  z-index: 0;
+}
+
+.section-cream > * {
+  position: relative;
+  z-index: 2;
+}
+/* =====================================================
+6. HOME TEXT
 ===================================================== */
 
-/* HERO */
-.page-home .welcome-hero {
-  height: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: center;   /* horizontally center */
-  text-align: center;        /* center the text */
-  position: relative;
+.couple-names {
+  font-family: "Parisienne", cursive;
+  font-size: clamp(56px, 6vw, 90px);
+  color: #e06343;
+  line-height: 1;
+  margin-bottom: 20px;
 }
 
-/* MAIN TITLE */
-.page-home .welcome-overlay h1 {
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
-  font-size: clamp(42px, 6vw, 64px);
-  letter-spacing: 0.5px;
-
-  color: #5c3a36;   /* warm romantic brown */
-  margin-bottom: 10px;
-}
-
-
-/* SUBTITLE */
-.page-home .hero-subtitle {
-  text-transform: uppercase;
-  letter-spacing: 4px;
+.wedding-line {
   font-size: 13px;
-
-  color: #a27c72;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(60,40,35,0.7);
 }
 
+.message-card {
+  max-width: 760px;
+  margin: 0 auto 100px;
+  text-align: center;
+}
+
+.message-card h2 {
+  margin-bottom: 28px;
+  color: #5a3a36;
+  font-size: 46px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.4);
+}
+
+.message-card p {
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(70, 50, 45, 0.95);
+  margin-bottom: 28px;
+}
+
+.rsvp-section {
+  max-width: 650px;
+  margin: 0 auto 140px;
+  text-align: center;
+}
+
+.rsvp-section h2 {
+  font-size: 46px;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+  color: #5a3a36;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.4);
+}
+
+.rsvp-text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+  color: rgba(70, 50, 45, 0.95);
+}
+
+/* Input Block */
+.form-block {
+  margin-bottom: 25px;
+}
+
+.form-block label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: rgba(70,50,45,0.9);
+}
+
+.form-block input[type="text"] {
+  width: 320px;
+  max-width: 90%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(120,90,80,0.3);
+  background: rgba(255,255,255,0.7);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* RSVP Options */
+.rsvp-options {
+  margin: 25px 0 30px;
+}
+
+.rsvp-choice {
+  margin: 0 15px;
+  font-size: 18px;
+  color: rgba(70,50,45,0.9);
+}
+
+/* Button */
+.btn-primary {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  background: #e06343;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #c94f32;
+  transform: translateY(-2px);
+}
 .message-card h2::after,
 .rsvp-section h2::after {
   content: "";
   display: block;
-  width: 46px;
+  width: 60px;
   height: 2px;
-  margin: 14px auto 0;
-
-  background: linear-gradient(to right, #f4b2a1, #e18c74);
-  border-radius: 2px;
+  margin: 18px auto 0;
+  background: #e06343;
+  opacity: 0.7;
 }
-  .couple-names span {
-    font-family: "Cormorant Garamond", serif;
-    font-style: italic;
-    font-weight: 300;
-    margin: 0 12px;
-    color: #d48a78;
-  }
-
-.couple-names span {
-  font-family: "Parisienne", cursive;
-  font-size: 0.9em;
-  margin: 0 8px;
-  color: #c97c6b;
-}
-
-/* MESSAGE SECTION */
-.page-home .welcome-message {
-  margin: 60px auto 30px;
-  padding: 0 20px;
-}
-
-.wedding-line {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-
-  color: #9c8f88;
-
-  margin-top: 18px;
-}
-
-.welcome-message {
-  margin: 90px auto 40px;
-}
-
-
-/* MESSAGE CARD */
-.page-home .message-card {
-  max-width: 720px;
-  margin: auto;
-  padding: 45px;
-  border-radius: 26px;
-  background: #fffaf7;
-  box-shadow: 0 30px 70px rgba(180,90,70,0.12);
-  text-align: center;
-  background: rgba(255,255,255,0.92);
-  border: none;
-
-box-shadow:
-  0 30px 60px rgba(190,100,80,0.18),
-  0 4px 12px rgba(0,0,0,0.04);
-
-}
-
-.page-home .message-card h2 {
-  font-size: 32px;
-  margin-bottom: 18px;
-  color: #5c3a36;
-}
-
-.page-home .message-card p {
-  color: #6f6761;
-  line-height: 1.7;
-  margin-bottom: 14px;
-}
-
-/* RSVP SECTION */
-.page-home .rsvp-section {
-  max-width: 520px;
-  margin: 30px auto 90px;
-  padding: 40px;
-  border-radius: 26px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(120,70,60,0.08);
-  background: rgba(255,255,255,0.92);
-  border: none;
-
-box-shadow:
-  0 30px 60px rgba(190,100,80,0.18),
-  0 4px 12px rgba(0,0,0,0.04);
-}
-
-.page-home .rsvp-section h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: #5c3a36;
-}
-
-.page-home .rsvp-text {
-  color: #7a716a;
-  margin-bottom: 25px;
-}
-
-
-/* FORM */
-.page-home .rsvp-form input[type="text"] {
-  width: 100%;
-  padding: 14px;
-  border-radius: 14px;
-
-  border: 1px solid #e6d6d0;
-  background: #ffffff;
-
-  margin-bottom: 20px;
-}
-
-
-/* YES / NO OPTIONS */
-.page-home .rsvp-options {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 25px;
-}
-
-.page-home .rsvp-choice {
-  font-size: 16px;
-  color: #6f6761;
-}
-
-
-/* BUTTON */
-  .page-home .btn-primary {
-    background: #e08f79;
-    color: white;
-    border-radius: 999px;
-  
-    padding: 16px 42px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 13px;
-  
-    box-shadow: 0 12px 28px rgba(220,120,100,0.35);
-    transition: all 0.3s ease;
-  }
-  
-  .page-home .btn-primary:hover {
-    transform: translateY(-2px);
-    background: #d67f68;
-  }
-
 /* =====================================================
-4. ABOUT PAGE (EVENT GRID)
+7. EVENTS HERO TEXT
 ===================================================== */
 
-/* =========================
-   SECTION HEADING
-========================= */
+.events-hero h1 {
+  font-size: clamp(52px, 6vw, 80px);
+  color: #5a3a36;
+  margin-bottom: 16px;
+}
 
-.events-intro {
+.hero-subtitle {
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(80,60,50,0.75);
+}
+
+.hero-intro {
+  margin-top: 28px;
   max-width: 680px;
-  margin: 0 auto 40px;
-  text-align: center;
-  position: relative;
-  z-index: 2; /* keeps text above background wash */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(60,45,38,0.75);
 }
 
-.events-intro h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 52px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  margin-bottom: 20px;
-  color: #4e342e;
-}
-
-.events-intro p {
-  max-width: 640px;
-  margin: 0 auto;
-  font-size: 17px;
-  line-height: 1.9;
-  color: #7a6f68;
-}
-
-/* =========================
-   GUIDANCE CARD (THE NOTE)
-========================= */
+/* ==========================================
+   GUIDANCE BOX – LUXURY VERSION
+========================================== */
 
 .events-guidance {
-  max-width: 720px;
-  margin: 60px auto 90px;
-  padding: 44px 54px;
-
-  /* translucent vellum paper */
-  background: rgba(255, 255, 255, 0.55);
-
-  /* subtle glass effect */
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-
-  border-radius: 22px;
-  border: 1px solid rgba(170,140,120,0.25);
-
-  /* softer grounded shadow */
-  box-shadow: 0 18px 40px rgba(80,40,20,0.08);
-
-  text-align: center;
+  max-width: 950px;
+  margin: -120px auto 140px; /* tighter spacing */
+  padding: 90px 80px;
   position: relative;
-  z-index: 2;
+  border-radius: 40px;
+
+  background:
+    linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+    url("Images/sand.png");
+
+  background-size: cover;
+  background-position: center;
+
+  border: 1px solid rgba(255,255,255,0.8);
+
+  box-shadow:
+    0 40px 120px rgba(180,130,100,0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* heading */
-.events-guidance::before {
-  content: "A NOTE FOR OUR GUESTS";
-  display: block;
-  font-size: 12px;
-  letter-spacing: 0.38em;
-  color: #a07c70;
-  margin-bottom: 26px;
+.guidance-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: #6a4b43;
+  margin-bottom: 10px;
 }
-
-/* intro sentence */
-.events-guidance > p:first-child {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-  line-height: 1.6;
-  color: #5c3a36;
-  margin-bottom: 30px;
+.guidance-sub {
+  font-family: 'Parisienne', cursive;
+  font-size: 26px;
+  color: #c18f84;
+  margin-bottom: 40px;
 }
-
-
-/* =========================
-   LIST RESET
-========================= */
-
 .events-guidance ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-
-/* =========================
-   CUSTOM SOFT BULLETS
-========================= */
-
 .events-guidance li {
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #6f6761;
-  line-height: 1.8;
   position: relative;
-  padding-left: 18px;
+  padding-left: 30px;
+  margin-bottom: 18px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(70,50,45,0.9);
 }
 
 .events-guidance li::before {
-  content: "•";
+  content: "✧";
   position: absolute;
   left: 0;
-  color: rgba(150,110,90,0.55);
-  font-size: 16px;
+  top: 2px;
+  color: #d8a48f;
+  font-size: 18px;
 }
 
-.events-guidance li:not(:last-child)::after {
-  content: "";
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: rgba(160,124,112,0.28);
-  margin: 18px auto 0;
+.card-decoration {
+  position: absolute;
+  bottom: -110px;
+  left: -110px;
+  width: 480px;
+  height: 480px;
+  background: url("Images/softgreens.png") no-repeat bottom left / contain;
+  opacity: 0.85;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transform: rotate(-10deg);
 }
-
 
 /* =====================================================
-ABOUT PAGE — EVENTS GRID
+9. EVENTS GRID
 ===================================================== */
 
 .events-grid {
+  max-width: 1100px;
+  margin: 80px auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px 42px;
-  max-width: 900px;
-  margin: 30px auto 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 0 20px;
 }
-
-
-/* =========================
-   EVENT CARD — PAPER FEEL
-========================= */
-
-.event-card {
-  min-height: 420px;
-  padding: 28px 26px;
-  border-radius: 18px;
-
-  background: #f6f1ec;
-  border: 1px solid rgba(180,150,120,0.18);
-
+/* =====================================================
+10. ABOUT CARDS
+===================================================== */
+.about-card {
+  position: relative;
+  padding: 60px 50px;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1.5px solid rgba(255,255,255,0.6);
   box-shadow:
-    0 12px 30px rgba(0,0,0,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 14px;
-
-  transition: all 0.35s ease;
-}
-
-
-/* =========================
-   HOVER — SOFT LIFT
-========================= */
-
-.event-card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 22px 50px rgba(0,0,0,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-}
-
-
-/* =========================
-   IMAGE
-========================= */
-
-.event-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  margin-bottom: 26px;
-
-  filter: saturate(92%) contrast(96%);
-  border-radius: 12px;
-}
-
-
-/* =========================
-   TOP TITLE
-========================= */
-
-.event-card > h2 {
-  font-size: 22px;
-  margin-bottom: 18px;
-}
-
-
-/* =========================
-   INNER CONTENT BLOCK
-========================= */
-
-.event-card .event-body {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px;
+    0 40px 100px rgba(180,130,100,0.12),
+    0 0 0 1px rgba(255,255,255,0.7) inset;
   text-align: center;
+  transition: all 0.4s ease;
 }
 
-
-/* =========================
-   EVENT NAME — ELEGANT SERIF
-========================= */
-
-.event-body h3,
-.event-card h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 22px;
-  color: #5c3a36;
-  margin-bottom: 6px;
-  letter-spacing: 0.03em;
-}
-
-.event-body h3::after {
+.about-card::before {
   content: "";
-  display: block;
-  width: 38px;
-  height: 1px;
-  margin: 14px auto 18px;
-  background: rgba(160,120,95,0.4);
-}
-/* =========================
-   DATE — INVITATION STYLE
-========================= */
-
-.event-date {
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(120,95,75,0.75);
-  margin-bottom: 14px;
-  font-weight: 500;
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.8) 0.8px, transparent 0.8px);
+  background-size: 18px 18px;
+  opacity: 0.12;
+  pointer-events: none;
 }
 
+/* Fine Sparkle Dust */
+.about-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+/* Decorative Corner Glow */
+.about-card .corner-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: -60px;
+  right: -60px;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.6), transparent 70%);
+  filter: blur(10px);
+  opacity: 0.7;
+  pointer-events: none;
+  background-blend-mode: soft-light;
+}
 
-/* =========================
-   DESCRIPTION TEXT
-========================= */
-
-.event-body p,
-.event-card p {
-  font-size: 15px;
-  line-height: 1.65;
-  color: #6f6761;
-  padding: 0 22px;
+/* Hover Effect */
+.about-card:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 50px 120px rgba(180,130,100,0.28);
 }
 
 
-/* =========================
-   STRONG TEXT (if used)
-========================= */
+/* =====================================================
+COLOUR VARIANTS (MATCH YOUR HTML)
+===================================================== */
+.card-blue {
+  background: 
+  linear-gradient(
+      145deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.15)
+    ),
+    url("Images/blue.png") center/cover no-repeat;
+}
 
-.event-card p strong {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 15px;
-  color: #a07c70;
-  letter-spacing: 0.5px;
+.card-yellow {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.15)
+    ),
+    url("Images/yellow.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-purple {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.15)
+    ),
+    url("Images/lavender.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-pink {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.15)
+    ),
+    url("Images/pink.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-orange {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.15)
+    ),
+    url("Images/peach.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-green {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.15)
+    ),
+    url("Images/green.png");
+  background-size: cover;
+  background-position: center;
 }
 
 /* =====================================================
+CARD TEXT
+===================================================== */
+
+.about-card h3 {
+  font-size: 26px;
+  margin-bottom: 18px;
+  letter-spacing: 0.04em;
+  color: #5a3a36;
+}
+
+.about-card h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 20px auto 24px;
+  background: linear-gradient(to right, #f4b2a1, #d76a4b);
+}
+
+.about-card p {
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 320px;
+  margin: 0 auto;
+  color: #6f6761;
+}
+
+.event-date {
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  color: rgba(90,70,60,0.7);
+}
+/* =====================================================
+11. RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .events-hero {
+    height: 55vh;
+  }
+
+  .events-guidance {
+    padding: 50px 30px;
+  }
+}
+/* =====================================================
 5. DRESS CODE PAGE
 ===================================================== */
-/* =========================
-   PAGE INTRO
-========================= */
-
 .dress-intro {
     text-align: center;
     margin-bottom: 40px;
