@@ -608,7 +608,10 @@ CARD TEXT
     background-size: cover;
     background-position: center 75%;
   }
-
+   .welcome-hero {
+     background: url("Images/mobilebeach.png") center / cover no-repeat;
+    }
+  
   .hero-inner {
     transform: translateY(40px);
   }
