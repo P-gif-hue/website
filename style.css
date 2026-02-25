@@ -94,8 +94,13 @@ nav {
 
 /* Home hero */
 .welcome-hero {
-  height: 100vh;
-  background: url("Images/aibackground.png") center / cover no-repeat;
+  height: 100svh; /* better for iPhone */
+  min-height: 650px;
+  background: url("Images/aibackground.png") center bottom / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* Events hero */
@@ -560,24 +565,96 @@ CARD TEXT
 /* =====================================================
 11. RESPONSIVE
 ===================================================== */
-
-@media (max-width: 1000px) {
-  .events-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 650px) {
+
+  nav {
+    padding: 25px 0;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    z-index: 100;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    transform: translateY(-200%);
+    transition: transform 0.4s ease;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 0;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+
+
+  .welcome-hero {
+    height: auto;
+    min-height: 100svh;
+    background-size: contain;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-color: #f7f2ef;
+  }
+  
+  .couple-names {
+    font-size: 78px;
+    line-height: 1.05;
+  }
+
+  .wedding-line {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  .events-hero {
+    height: 70vh;
+    min-height: unset;
+    padding: 0 20px;
+  }
+
+  .events-guidance {
+    margin: 40px auto 100px;
+    padding: 50px 25px;
+  }
+
+  .guidance-title {
+    font-size: 28px;
+  }
+
+  .guidance-sub {
+    font-size: 20px;
+  }
+
+  .card-decoration {
+    width: 260px;
+    bottom: -60px;
+    left: -60px;
+    opacity: 0.6;
+  }
+
   .events-grid {
     grid-template-columns: 1fr;
   }
 
-  .events-hero {
-    height: 55vh;
-  }
-
-  .events-guidance {
-    padding: 50px 30px;
+  .about-card {
+    padding: 40px 25px;
   }
 }
 /* =====================================================
