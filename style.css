@@ -620,8 +620,8 @@ CARD TEXT
   grid-template-columns: 1.2fr 1.2fr 1.6fr 2fr;
   gap: 40px;
   padding: 30px 0;
-  text-align: center;
   align-items: start;
+  text-align: left;
 }
 
 .dress-header {
@@ -630,6 +630,7 @@ CARD TEXT
   color: rgba(120,90,80,0.7);
   border-bottom: 1px solid rgba(180,140,120,0.25);
   padding-bottom: 25px;
+  text-align: center;
 }
 .dress-header::after {
   content: "";
@@ -651,40 +652,50 @@ CARD TEXT
 
 
 .dress-event {
-  font-style: normal;
-  font-size: 18px;
-  color: #7a5a4f;
+  font-size: 22px;
+  font-weight: 600;
+  color: #5a3a36;
 }
 
 .dress-theme {
-  font-style: normal;
-  color: #7a5a4f;
   font-size: 18px;
+  font-style: italic;
+  color: #c18f84;
 }
 
-.dress-details,
-.dress-suggestions {
-  font-style: normal;
+.dress-details {
+  font-size: 15px;
   color: #7a5a4f;
-  font-size: 18px;
+}
+
+.dress-suggestions {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6e5a52;
 }
 
 .dress-table {
   max-width: 1200px;
-  margin: 0 auto 120px auto;
-  padding: 70px 60px;
+  margin: 120px auto 140px;
+  padding: 90px 80px;
 
-  background: rgba(255, 255, 255, 0.78); /* sheer */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(
+    rgba(255,255,255,0.82),
+    rgba(255,255,255,0.82)
+  ),
+  url("Images/sand.png");
 
-  border-radius: 32px;
-  box-shadow: 0 40px 120px rgba(160,120,100,0.18);
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 40px;
+
+  box-shadow:
+    0 60px 160px rgba(160,120,100,0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.5);
 
   position: relative;
 }
-
-
   .dresscode-section {
     background: url("Images/pinkfloral.png") center top / cover no-repeat;
     padding: 140px 20px 160px;
@@ -694,178 +705,229 @@ CARD TEXT
 /* =====================================================
 MOBILE
 ===================================================== */
+/* =====================================================
+MOBILE
+===================================================== */
 @media (max-width: 650px) {
 
+  /* =========================
+     NAVIGATION
+  ========================== */
+
   nav {
-    padding: 25px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+  }
+
+  .nav-inner {
+    position: relative;
   }
 
   .nav-toggle {
     display: block;
     position: absolute;
     right: 20px;
-    top: 25px;
-    font-size: 28px;
+    top: 18px;
+    font-size: 26px;
     background: none;
     border: none;
-    z-index: 100;
+    cursor: pointer;
+    z-index: 1100;
   }
 
   .nav-links {
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 70px;
     left: 0;
     width: 100%;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    transform: translateY(-200%);
-    transition: transform 0.4s ease;
-  }
-
-  .nav-links ul {
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px 0;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(14px);
+    transform: translateY(-120%);
+    transition: transform 0.35s ease;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.08);
   }
 
   .nav-links.open {
     transform: translateY(0);
   }
-  
-  .welcome-hero {
-      position: relative;
-      height: auto;
-      aspect-ratio: 9 / 16;
-      background: url("Images/mobilebeach.png") center / cover no-repeat;
-    }
-  
-    .hero-inner {
-      position: absolute;
-      top: 5%;              /* Adjust this to move names higher/lower */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      text-align: center;
-    }
-  
-    .couple-names {
-      font-size: clamp(46px, 11vw, 66px);
-      line-height: 1.05;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-  
-    .wedding-line {
-      font-size: 12px;
-      letter-spacing: 5px;
-    }
-    
-    .events-hero {
-    height: calc(100svh - 80px);
-    margin-top: 80px; /* pushes hero below fixed nav */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .nav-links ul {
+    flex-direction: column;
+    gap: 22px;
+    padding: 40px 0;
     text-align: center;
   }
-    }
 
-    .events-hero .hero-inner {
-      max-width: 800px;
-     transform: translateY(120px);
-      }
-    
-  
-    .events-guidance {
-      margin: 40px auto 100px;
-      padding: 50px 25px;
-    }
-  
-    .guidance-title {
-      font-size: 28px;
-    }
-  
-    .guidance-sub {
-      font-size: 20px;
-    }
-  
-    .card-decoration {
-      width: 260px;
-      bottom: -60px;
-      left: -60px;
-      opacity: 0.6;
-    }
-  
-    .events-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .about-card {
-      padding: 40px 25px;
-    }
-    .page-banner {
-      height: 70svh;
-      min-height: 500px;
-    }
-  
-    .banner-content h1 {
-      font-size: 64px;
-    }
-
-
-  .dresscode-section {
-    padding: 80px 20px 120px;
-    background-position: center;
-  }
-
-  /* Remove header row */
-  .dress-header {
-    display: none;
-  }
-
-  /* Turn rows into cards */
-  .dress-row {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 40px 25px;
-    margin-bottom: 25px;
-
-    background: rgba(255,255,255,0.85);
-    border-radius: 22px;
-    box-shadow: 0 20px 60px rgba(160,120,100,0.12);
-  }
-
-  .dress-event {
-    font-size: 22px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 6px;
-  }
-
-  .dress-theme {
-    font-size: 18px;
-    font-style: italic;
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
-  .dress-details {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 18px;
-  }
-
-  .dress-suggestions {
+  .nav-links a {
     font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+
+  /* =========================
+     HERO ADJUSTMENTS
+  ========================== */
+
+  .welcome-hero {
+    height: auto;
+    aspect-ratio: 9 / 16;
+    background: url("Images/mobilebeach.png") center / cover no-repeat;
+  }
+
+  .hero-inner {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
     text-align: center;
   }
 
+  .couple-names {
+    font-size: clamp(46px, 11vw, 66px);
+    line-height: 1.05;
+  }
 
+  .wedding-line {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+
+  .events-hero {
+    height: calc(100svh - 70px);
+    margin-top: 70px;
+    padding: 0 20px;
+  }
+
+  .events-hero .hero-inner {
+    transform: translateY(80px);
+  }
+
+  /* =========================
+     EVENTS SECTION
+  ========================== */
+
+  .events-guidance {
+    margin: 40px auto 100px;
+    padding: 50px 25px;
+  }
+
+  .guidance-title {
+    font-size: 28px;
+  }
+
+  .guidance-sub {
+    font-size: 20px;
+  }
+
+  .card-decoration {
+    width: 260px;
+    bottom: -60px;
+    left: -60px;
+    opacity: 0.6;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    padding: 40px 25px;
+  }
+
+  /* =========================
+     DRESS CODE BANNER
+  ========================== */
+
+  .page-banner {
+    height: 65svh;
+    min-height: 480px;
+    margin-top: 70px;
+  }
+
+  .banner-content h1 {
+    font-size: 56px;
+  }
+
+/* =========================
+   DRESS CODE – ELEVATED MOBILE
+========================= */
+
+.dress-header {
+  display: none;
 }
-  
-  
 
+.dress-table {
+  padding: 20px;
+  background: none;
+  box-shadow: none;
+}
 
+.dress-row {
+  display: block;
+  padding: 50px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(180,140,120,0.25);
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Remove border on last */
+.dress-row:last-child {
+  border-bottom: none;
+}
+
+/* EVENT TITLE */
+.dress-event {
+  font-size: 24px;
+  font-weight: 600;
+  color: #5a3a36;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+/* THEME ACCENT */
+.dress-theme {
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c18f84;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+/* Soft divider under theme */
+.dress-theme::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: rgba(200,150,130,0.5);
+  margin: 14px auto 0;
+}
+
+/* DETAILS */
+.dress-details {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 18px;
+  color: #7a5a4f;
+}
+
+/* SUGGESTIONS */
+.dress-suggestions {
+  font-size: 15px;
+  line-height: 1.8;
+  text-align: center;
+  color: #6e5a52;
+}
+}
   /* =====================================================
 6. TRAVEL PAGE
 ===================================================== */
