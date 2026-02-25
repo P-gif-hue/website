@@ -608,72 +608,116 @@ CARD TEXT
   }
 
   /* =======================
-     WELCOME HERO (FIXED)
+     mobile 
   ======================== */
+  @media (max-width: 650px) {
 
-  .welcome-hero {
-    height: auto;                    
-    aspect-ratio: 9 / 16;           
-    background: url("Images/mobilebeach.png") center / cover no-repeat;
-    display: flex;
-    align-items: flex-start;         
-    justify-content: center;
-    padding-top: 14vh;               
+    /* =========================
+       NAVIGATION
+    ========================== */
+  
+    nav {
+      padding: 25px 0;
+    }
+  
+    .nav-toggle {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 25px;
+      font-size: 28px;
+      background: none;
+      border: none;
+      z-index: 100;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      transform: translateY(-200%);
+      transition: transform 0.4s ease;
+    }
+  
+    .nav-links ul {
+      flex-direction: column;
+      gap: 20px;
+      padding: 40px 0;
+    }
+  
+    .nav-links.open {
+      transform: translateY(0);
+    }
+  
+    /* =========================
+       WELCOME HERO (MOBILE FIXED)
+    ========================== */
+  
+    .welcome-hero {
+      position: relative;
+      height: auto;
+      aspect-ratio: 9 / 16;
+      background: url("Images/mobilebeach.png") center / cover no-repeat;
+    }
+  
+    .hero-inner {
+      position: absolute;
+      top: 12%;              /* Adjust this to move names higher/lower */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      text-align: center;
+    }
+  
+    .couple-names {
+      font-size: clamp(46px, 11vw, 66px);
+      line-height: 1.05;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+  
+    .wedding-line {
+      font-size: 12px;
+      letter-spacing: 5px;
+    }
+  
+    .events-hero {
+      height: 65vh;
+      min-height: unset;
+      padding: 0 20px;
+    }
+  
+    .events-guidance {
+      margin: 40px auto 100px;
+      padding: 50px 25px;
+    }
+  
+    .guidance-title {
+      font-size: 28px;
+    }
+  
+    .guidance-sub {
+      font-size: 20px;
+    }
+  
+    .card-decoration {
+      width: 260px;
+      bottom: -60px;
+      left: -60px;
+      opacity: 0.6;
+    }
+  
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .about-card {
+      padding: 40px 25px;
+    }
+  
   }
-  .hero-inner {
-    transform: none;                 
-  }
-
-  .couple-names {
-    font-size: clamp(48px, 11vw, 68px);
-    line-height: 1.05;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
-
-  .wedding-line {
-    font-size: 12px;
-    letter-spacing: 5px;
-  }
-
-  /* =======================
-     EVENTS PAGE
-  ======================== */
-
-  .events-hero {
-    height: 65vh;
-    min-height: unset;
-    padding: 0 20px;
-  }
-
-  .events-guidance {
-    margin: 40px auto 100px;
-    padding: 50px 25px;
-  }
-
-  .guidance-title {
-    font-size: 28px;
-  }
-
-  .guidance-sub {
-    font-size: 20px;
-  }
-
-  .card-decoration {
-    width: 260px;
-    bottom: -60px;
-    left: -60px;
-    opacity: 0.6;
-  }
-
-  .events-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-card {
-    padding: 40px 25px;
-  }
-
-}
 /* =====================================================
 5. DRESS CODE PAGE
 ===================================================== */
