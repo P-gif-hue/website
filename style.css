@@ -603,18 +603,18 @@ CARD TEXT
     transform: translateY(0);
   }
 
-
   .welcome-hero {
-    height: auto;
-    min-height: 100svh;
-    background-size: contain;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-color: #f7f2ef;
+    height: 100svh;
+    background-size: cover;
+    background-position: center 75%;
   }
-  
+
+  .hero-inner {
+    transform: translateY(40px);
+  }
+
   .couple-names {
-    font-size: 78px;
+    font-size: 64px;
     line-height: 1.05;
   }
 
