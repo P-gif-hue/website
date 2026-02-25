@@ -618,7 +618,7 @@ CARD TEXT
     display: flex;
     align-items: flex-start;         
     justify-content: center;
-    padding-top: 18vh;               
+    padding-top: 14vh;               
   }
   .hero-inner {
     transform: none;                 
