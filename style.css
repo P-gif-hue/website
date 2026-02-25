@@ -567,6 +567,10 @@ CARD TEXT
 ===================================================== */
 @media (max-width: 650px) {
 
+  /* =======================
+     NAVIGATION
+  ======================== */
+
   nav {
     padding: 25px 0;
   }
@@ -603,27 +607,41 @@ CARD TEXT
     transform: translateY(0);
   }
 
+  /* =======================
+     WELCOME HERO (FIXED)
+  ======================== */
+
   .welcome-hero {
-    height: auto;                /* remove forced screen height */
-    aspect-ratio: 9 / 16;        /* match your tall image */
+    height: auto;                    
+    aspect-ratio: 9 / 16;           
     background: url("Images/mobilebeach.png") center / cover no-repeat;
+    display: flex;
+    align-items: flex-start;         
+    justify-content: center;
+    padding-top: 26vh;               
   }
+
   .hero-inner {
-    transform: translateY(40px);
+    transform: none;                 
   }
 
   .couple-names {
-    font-size: 64px;
+    font-size: clamp(48px, 11vw, 68px);
     line-height: 1.05;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.15);
   }
 
   .wedding-line {
     font-size: 12px;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
   }
 
+  /* =======================
+     EVENTS PAGE
+  ======================== */
+
   .events-hero {
-    height: 70vh;
+    height: 65vh;
     min-height: unset;
     padding: 0 20px;
   }
@@ -655,6 +673,7 @@ CARD TEXT
   .about-card {
     padding: 40px 25px;
   }
+
 }
 /* =====================================================
 5. DRESS CODE PAGE
