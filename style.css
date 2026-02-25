@@ -35,14 +35,9 @@ p {
   color: #6f6761;
 }
 
-/* =====================================================
-3. NAVIGATION
-===================================================== */
 
 nav {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   padding: 40px 0;
   background: transparent;
@@ -52,6 +47,7 @@ nav {
 .nav-inner {
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
 }
 
 .nav-links ul {
@@ -75,6 +71,14 @@ nav {
 
 .nav-toggle {
   display: none;
+}
+
+/* Overlay nav only on hero pages */
+.page-home nav,
+.page-events nav {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* =====================================================
@@ -583,7 +587,7 @@ CARD TEXT
 }
 
 .dresscode-banner {
-  background-image: url("images/background3.png");
+  background-image: url("Images/background3.png");
 }
 
 .dresscode-banner::after {
@@ -706,8 +710,12 @@ CARD TEXT
 /* =====================================================
 MOBILE
 ===================================================== */
+
 @media (max-width: 650px) {
 
+  /* =========================
+     NAV
+  ========================== */
 
   nav {
     position: fixed;
@@ -765,7 +773,7 @@ MOBILE
   }
 
   /* =========================
-     HERO ADJUSTMENTS
+     WELCOME HERO
   ========================== */
 
   .welcome-hero {
@@ -793,18 +801,29 @@ MOBILE
     letter-spacing: 4px;
   }
 
+  /* =========================
+     EVENTS HERO
+  ========================== */
+
   .events-hero {
-    height: calc(100svh - 70px);
-    margin-top: 70px;
-    padding: 0 20px;
+    height: 85svh;
+    padding-top: 120px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
   }
 
   .events-hero .hero-inner {
-    transform: translateY(80px);
+    transform: none;
+    max-width: 800px;
   }
 
   /* =========================
-     EVENTS SECTION
+     EVENTS GUIDANCE
   ========================== */
 
   .events-guidance {
@@ -826,6 +845,10 @@ MOBILE
     left: -60px;
     opacity: 0.6;
   }
+
+  /* =========================
+     EVENTS GRID
+  ========================== */
 
   .events-grid {
     grid-template-columns: 1fr;
@@ -850,82 +873,74 @@ MOBILE
   }
 
   .dresscode-banner {
-    background-image: url("images/background3.png");
+    background-image: url("Images/background3.png");
   }
 
-/* =========================
-   DRESS CODE – ELEVATED MOBILE
-========================= */
+  /* =========================
+     DRESS CODE MOBILE LAYOUT
+  ========================== */
 
-.dress-header {
-  display: none;
-}
+  .dress-header {
+    display: none;
+  }
 
-.dress-table {
-  padding: 20px;
-  background: none;
-  box-shadow: none;
-}
+  .dress-table {
+    padding: 20px;
+    background: none;
+    box-shadow: none;
+  }
 
-.dress-row {
-  display: block;
-  padding: 50px 0;
-  margin-bottom: 40px;
-  border-bottom: 1px solid rgba(180,140,120,0.25);
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-}
+  .dress-row {
+    display: block;
+    padding: 50px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(180,140,120,0.25);
+  }
 
-/* Remove border on last */
-.dress-row:last-child {
-  border-bottom: none;
-}
+  .dress-row:last-child {
+    border-bottom: none;
+  }
 
-/* EVENT TITLE */
-.dress-event {
-  font-size: 24px;
-  font-weight: 600;
-  color: #5a3a36;
-  text-align: center;
-  margin-bottom: 6px;
-}
+  .dress-event {
+    font-size: 24px;
+    font-weight: 600;
+    color: #5a3a36;
+    text-align: center;
+    margin-bottom: 6px;
+  }
 
-/* THEME ACCENT */
-.dress-theme {
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #c18f84;
-  text-align: center;
-  margin-bottom: 22px;
-}
+  .dress-theme {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c18f84;
+    text-align: center;
+    margin-bottom: 22px;
+  }
 
-/* Soft divider under theme */
-.dress-theme::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: rgba(200,150,130,0.5);
-  margin: 14px auto 0;
-}
+  .dress-theme::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: rgba(200,150,130,0.5);
+    margin: 14px auto 0;
+  }
 
-/* DETAILS */
-.dress-details {
-  font-size: 15px;
-  text-align: center;
-  margin-bottom: 18px;
-  color: #7a5a4f;
-}
+  .dress-details {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 18px;
+    color: #7a5a4f;
+  }
 
-/* SUGGESTIONS */
-.dress-suggestions {
-  font-size: 15px;
-  line-height: 1.8;
-  text-align: center;
-  color: #6e5a52;
-}
+  .dress-suggestions {
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: center;
+    color: #6e5a52;
+  }
+
 }
   /* =====================================================
 6. TRAVEL PAGE
