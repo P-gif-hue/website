@@ -564,110 +564,6 @@ CARD TEXT
   color: rgba(90,70,60,0.7);
 }
 
-/* =====================================================
-MOBILE
-===================================================== */
-@media (max-width: 650px) {
-
-  nav {
-    padding: 25px 0;
-  }
-
-  .nav-toggle {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 25px;
-    font-size: 28px;
-    background: none;
-    border: none;
-    z-index: 100;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
-    transform: translateY(-200%);
-    transition: transform 0.4s ease;
-  }
-
-  .nav-links ul {
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px 0;
-  }
-
-  .nav-links.open {
-    transform: translateY(0);
-  }
-  
-  .welcome-hero {
-      position: relative;
-      height: auto;
-      aspect-ratio: 9 / 16;
-      background: url("Images/mobilebeach.png") center / cover no-repeat;
-    }
-  
-    .hero-inner {
-      position: absolute;
-      top: 5%;              /* Adjust this to move names higher/lower */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      text-align: center;
-    }
-  
-    .couple-names {
-      font-size: clamp(46px, 11vw, 66px);
-      line-height: 1.05;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    }
-  
-    .wedding-line {
-      font-size: 12px;
-      letter-spacing: 5px;
-    }
-  
-    .events-hero {
-      height: 65vh;
-      min-height: unset;
-      padding: 0 20px;
-    }
-  
-    .events-guidance {
-      margin: 40px auto 100px;
-      padding: 50px 25px;
-    }
-  
-    .guidance-title {
-      font-size: 28px;
-    }
-  
-    .guidance-sub {
-      font-size: 20px;
-    }
-  
-    .card-decoration {
-      width: 260px;
-      bottom: -60px;
-      left: -60px;
-      opacity: 0.6;
-    }
-  
-    .events-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .about-card {
-      padding: 40px 25px;
-    }
-  
-  }
-
 /* =====================================
    DRESS CODE 
 ===================================== */
@@ -794,6 +690,180 @@ MOBILE
     padding: 140px 20px 160px;
   }
 
+
+/* =====================================================
+MOBILE
+===================================================== */
+@media (max-width: 650px) {
+
+  nav {
+    padding: 25px 0;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    z-index: 100;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    transform: translateY(-200%);
+    transition: transform 0.4s ease;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 0;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+  
+  .welcome-hero {
+      position: relative;
+      height: auto;
+      aspect-ratio: 9 / 16;
+      background: url("Images/mobilebeach.png") center / cover no-repeat;
+    }
+  
+    .hero-inner {
+      position: absolute;
+      top: 5%;              /* Adjust this to move names higher/lower */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      text-align: center;
+    }
+  
+    .couple-names {
+      font-size: clamp(46px, 11vw, 66px);
+      line-height: 1.05;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+  
+    .wedding-line {
+      font-size: 12px;
+      letter-spacing: 5px;
+    }
+  
+    .events-hero {
+      position: relative;
+      height: 85svh; /* better mobile height */
+      min-height: 600px;
+    
+      display: flex;
+      align-items: center;      /* vertical centre */
+      justify-content: center;  /* horizontal centre */
+      text-align: center;
+    
+      padding: 0 20px;
+    }
+
+    .events-hero .hero-inner {
+      max-width: 800px;
+    }
+  
+    .events-guidance {
+      margin: 40px auto 100px;
+      padding: 50px 25px;
+    }
+  
+    .guidance-title {
+      font-size: 28px;
+    }
+  
+    .guidance-sub {
+      font-size: 20px;
+    }
+  
+    .card-decoration {
+      width: 260px;
+      bottom: -60px;
+      left: -60px;
+      opacity: 0.6;
+    }
+  
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .about-card {
+      padding: 40px 25px;
+    }
+    .page-banner {
+      height: 70svh;
+      min-height: 500px;
+    }
+  
+    .banner-content h1 {
+      font-size: 64px;
+    }
+
+
+  .dresscode-section {
+    padding: 80px 20px 120px;
+    background-position: center;
+  }
+
+  /* Remove header row */
+  .dress-header {
+    display: none;
+  }
+
+  /* Turn rows into cards */
+  .dress-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 40px 25px;
+    margin-bottom: 25px;
+
+    background: rgba(255,255,255,0.85);
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(160,120,100,0.12);
+  }
+
+  .dress-event {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .dress-theme {
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .dress-details {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .dress-suggestions {
+    font-size: 15px;
+    text-align: center;
+  }
+
+
+}
+  
+  
 
 
   /* =====================================================
