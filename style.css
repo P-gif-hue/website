@@ -587,14 +587,18 @@ CARD TEXT
 }
 
 .dresscode-banner {
-  background-image: url("Images/background3.png");
+  background-image: url("Images/background.png");
 }
 
 .dresscode-banner::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 244, 228, 0.35);
+  background: linear-gradient(
+    rgba(255,244,228,0.30),
+    rgba(255,244,228,0.15)
+  );
+  z-index: 1;
 }
 
 .banner-content {
@@ -873,7 +877,7 @@ MOBILE
   }
 
   .dresscode-banner {
-    background-image: url("Images/background3.png");
+    background-image: url("Images/background.png");
   }
 
   /* =========================
