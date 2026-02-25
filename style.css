@@ -374,7 +374,6 @@ nav {
   left: -110px;
   width: 480px;
   height: 480px;
-  background: url("Images/softgreens.png") no-repeat bottom left / contain;
   opacity: 0.85;
   mix-blend-mode: multiply;
   pointer-events: none;
@@ -458,13 +457,15 @@ nav {
 COLOUR VARIANTS (MATCH YOUR HTML)
 ===================================================== */
 .card-blue {
-  background: 
-  linear-gradient(
+  background:
+    linear-gradient(
       145deg,
       rgba(255,255,255,0.35),
       rgba(255,255,255,0.15)
     ),
-    url("Images/blue.png") center/cover no-repeat;
+    url("Images/blue.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .card-yellow {
@@ -562,14 +563,11 @@ CARD TEXT
   margin-bottom: 22px;
   color: rgba(90,70,60,0.7);
 }
+
 /* =====================================================
-11. RESPONSIVE
+MOBILE
 ===================================================== */
 @media (max-width: 650px) {
-
-  /* =========================
-     NAVIGATION
-  ========================== */
 
   nav {
     padding: 25px 0;
@@ -606,54 +604,8 @@ CARD TEXT
   .nav-links.open {
     transform: translateY(0);
   }
-
-  @media (max-width: 650px) {
-
-    /* =========================
-       NAVIGATION
-    ========================== */
   
-    nav {
-      padding: 25px 0;
-    }
-  
-    .nav-toggle {
-      display: block;
-      position: absolute;
-      right: 20px;
-      top: 25px;
-      font-size: 28px;
-      background: none;
-      border: none;
-      z-index: 100;
-    }
-  
-    .nav-links {
-      position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      transform: translateY(-200%);
-      transition: transform 0.4s ease;
-    }
-  
-    .nav-links ul {
-      flex-direction: column;
-      gap: 20px;
-      padding: 40px 0;
-    }
-  
-    .nav-links.open {
-      transform: translateY(0);
-    }
-  
-    /* =========================
-       WELCOME HERO (MOBILE FIXED)
-    ========================== */
-  
-    .welcome-hero {
+  .welcome-hero {
       position: relative;
       height: auto;
       aspect-ratio: 9 / 16;
@@ -662,7 +614,7 @@ CARD TEXT
   
     .hero-inner {
       position: absolute;
-      top: 12%;              /* Adjust this to move names higher/lower */
+      top: 5%;              /* Adjust this to move names higher/lower */
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
@@ -679,10 +631,6 @@ CARD TEXT
       font-size: 12px;
       letter-spacing: 5px;
     }
-  
-    /* =========================
-       EVENTS PAGE
-    ========================== */
   
     .events-hero {
       height: 65vh;
@@ -720,156 +668,134 @@ CARD TEXT
   
   }
 
+/* =====================================
+   DRESS CODE 
+===================================== */
+
+.page-banner {
+  height: 70vh; /* Taller so nothing gets cut */
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-/* =====================================================
-5. DRESS CODE PAGE
-===================================================== */
-.dress-intro {
-    text-align: center;
-    margin-bottom: 40px;
+
+.dresscode-banner {
+  background-image: url("images/background3.png");
+}
+
+.dresscode-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 244, 228, 0.35);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.banner-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 90px;
+  color: #5a3d35;
+  margin-bottom: 20px;
+}
+
+.banner-content p {
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(80,60,50,0.85);
+}
+
+.dress-header,
+.dress-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1.6fr 2fr;
+  gap: 40px;
+  padding: 30px 0;
+  text-align: center;
+  align-items: start;
+}
+
+.dress-header {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(120,90,80,0.7);
+  border-bottom: 1px solid rgba(180,140,120,0.25);
+  padding-bottom: 25px;
+}
+.dress-header::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d8b6a3, transparent);
+  margin-top: 20px;
+}
+
+.dress-row {
+  border-bottom: 1px solid rgba(180,140,120,0.25);
+  transition: background 0.3s ease;
+  
+}
+
+.dress-row:last-child {
+  border-bottom: none;
+}
+
+
+.dress-event {
+  font-style: normal;
+  font-size: 18px;
+  color: #7a5a4f;
+}
+
+.dress-theme {
+  font-style: normal;
+  color: #7a5a4f;
+  font-size: 18px;
+}
+
+.dress-details,
+.dress-suggestions {
+  font-style: normal;
+  color: #7a5a4f;
+  font-size: 18px;
+}
+
+.dress-table {
+  max-width: 1200px;
+  margin: 0 auto 120px auto;
+  padding: 70px 60px;
+
+  background: rgba(255, 255, 255, 0.78); /* sheer */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 32px;
+  box-shadow: 0 40px 120px rgba(160,120,100,0.18);
+
+  position: relative;
+}
+
+
+  .dresscode-section {
+    background: url("Images/pinkfloral.png") center top / cover no-repeat;
+    padding: 140px 20px 160px;
   }
-  
-  .dress-intro h2 {
-    font-size: 42px;
-    margin-bottom: 10px;
-  }
-  
-  .dress-intro p {
-    color: #6f6761;
-  }
-  
-  
-  /* =========================
-     TABLE CONTAINER
-     (Full-width, NOT boxed)
-  ========================= */
-  
-  .dress-table {
-    width: 100%;
-    max-width: 1400px;          /* keeps it wide but not stretched to infinity */
-    margin: 50px auto;
-    padding: 0 24px;            /* reduced side padding = more usable width */
-  
-    border-radius: 22px;
-    overflow: hidden;
-  
-    background: rgba(255,255,255,0.78);
-    border: 1px solid rgba(200,190,180,0.25);
-    box-shadow: 0 18px 40px rgba(60,40,20,0.05);
-  }
-  
-  
-  /* =========================
-     GRID STRUCTURE (WIDE + HORIZONTAL)
-  ========================= */
-  
-  .dress-header,
-  .dress-row {
-    display: grid;
-  
-    /* Forces a horizontal layout */
-    grid-template-columns: 1.3fr 1fr 2fr 2.4fr;
-  
-    column-gap: 40px;           /* adds breathing room horizontally */
-  }
-  
-  
-  /* =========================
-     HEADER
-  ========================= */
-  
-  .dress-header {
-    padding: 18px 28px;
-  
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #8a817a;
-  
-    background: rgba(248,244,240,0.9);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-  
-  
-  /* =========================
-     ROWS (Reduced Height)
-  ========================= */
-  
-  .dress-row {
-    padding: 20px 28px;        /* tighter = less vertical stretch */
-    align-items: center;
-  
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    transition: background 0.25s ease;
-  }
-  
-  .dress-row:last-child {
-    border-bottom: none;
-  }
-  
-  .dress-row:nth-child(even) {
-    background: rgba(252,249,246,0.65);
-  }
-  
-  .dress-row:hover {
-    background: rgba(255,255,255,0.9);
-  }
-  
-  
-  /* =========================
-     ALIGNMENT (LEFT = feels wider)
-  ========================= */
-  
-  .dress-header div,
-  .dress-row > div {
-    text-align: left;
-    width: 100%;
-  }
-  
-  
-  /* =========================
-     TYPOGRAPHY
-  ========================= */
-  
-  .dress-event {
-    font-family: "Playfair Display", serif;
-    font-size: 24px;
-    color: #2f2a26;
-  }
-  
-  .dress-theme {
-    font-size: 18px;
-    color: #7a716a;
-  }
-  
-  
-  /* IMPORTANT:
-     No max-width → allows text to flow horizontally
-  */
-  .dress-details {
-    font-size: 16px;
-    color: #7a716a;
-    line-height: 1.45;
-  }
-  
-  
-  /* =========================
-     ATTIRE COLUMN
-     (Compact but still horizontal)
-  ========================= */
-  
-  .dress-suggestions {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #4f4a45;
-  }
-  
-  .dress-suggestions strong {
-    display: block;
-    font-weight: 600;
-    margin: 6px 0 2px;
-    letter-spacing: 0.3px;
-  }
+
+
+
   /* =====================================================
 6. TRAVEL PAGE
 ===================================================== */
